@@ -242,3 +242,8 @@ background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(59,59,59,1) 76%, rgb
 background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(59,59,59,1) 76%, rgba(97,97,97,1) 89%, rgba(120,119,120,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#787778', GradientType=0 );
 }
+
+.listaOl li{
+  margin-top: 20px;
+  text-align: justify;
+}
