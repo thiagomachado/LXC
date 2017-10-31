@@ -88,7 +88,7 @@
             </p>
             <p>Para um melhor entendimento das funcionalidades do LCX é necessário entender a definição de container. Um container é basicamente uma virtualização
               a nível de sistema operacional, isto significa que o kernel do sistema operacional permite que múltiplos processos executem isoladamente na mesma máquina.
-              <a href="#references">[7]</a>
+              <sup><a href="#references">[7]</a></sup>
             </p>
             <p>
               <center><img src="img/containerLXC.png"/><br>
@@ -96,15 +96,17 @@
             </p>
             <p>
              A figura 1 mostra que as três aplicações (APP 1, APP 2 e APP 3) executam isoladas em containers no sistema operacional. Este isolamento se dá por conta da funcionalidade
-             namespaces do kernel do Linux. <a href="#references">[7]</a>
+             namespaces do kernel do Linux. <sup><a href="#references">[7]</a></sup>          
+              Os namespaces funcionam envolvendo as configurações globais do sistema em um ambiente que faz parecer para um processo que ele está sendo executado
+              somente com processos do mesmo ambiente.<sup><a href="#references">[9]</a></sup>
             </p>
             <p>
-              Os namespaces funcionam envolvendo as configurações globais do sistema em um ambiente que faz parecer para um processo em um determinado namespace que ele está executando
-              somente com processos do mesmo ambiente.<a href="#references">[9]</a>
+              Porém somente o uso dos namespaces pode fazer com que um container isolado utilize todos os recursos da máquina, para que isto não ocorra a funcionalidade do cgroups é utlizada.
+              <sup><a href="#references">[7]</a></sup>                        
+              O cgroups é uma funcionalidade do Linux que permite que os processos sejam organizados em grupos hieraquicamente, de acordo com o tipo de recurso da máquina que eles utilizam, assim estes recursos
+              podem ser monitorados e limitados para cada grupo.<sup><a href="#references">[9]</a></sup>
             </p>
-            <p>
-              Porém somente o uso dos namespaces pode fazer com que um determinado processo utilize todos os recursos da máquina
-            </p>
+
             
           </div>
         </div>
@@ -164,7 +166,7 @@
                Acessado em: 30/08/2017 às 23:20. 
            </li>
            <li>
-                <a href="http://man7.org/linux/man-pages/man7/namespaces.7.html">Namespaces Linux Manual</a>.
+                <a href="http://man7.org/linux/man-pages/index.html">Linux Manual</a>.
                 Acessado em: 30/10/2017 às 19:36.
            </li>           
           </ol>
