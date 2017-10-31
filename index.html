@@ -39,6 +39,9 @@
               <a class="nav-link js-scroll-trigger" href="#about">O que é LXC?</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#functions">Como funciona?</a>
+              </li>
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#download">Desempenho</a>
             </li>
             <li class="nav-item">
@@ -89,28 +92,45 @@
             <p>Para um melhor entendimento das funcionalidades do LCX é necessário entender a definição de container. Um container é basicamente uma virtualização
               a nível de sistema operacional, isto significa que o kernel do sistema operacional permite que múltiplos processos executem isoladamente na mesma máquina.
               <sup><a href="#references">[7]</a></sup>
-            </p>
+            </p>            
             <p>
-              <center><img src="img/containerLXC.png"/><br>
-              <label>Figura 1: Reproduzida de <a href="#references">[8].</a></label> </center>
+              O principal objetivo do LXC é criar vários ambientes Linux sem precisar utlizar diferentes kernels de modo a ser mais eficiente do que uma máquina virtual.<sup><a href="#references">[6]</a></sup>
             </p>
-            <p>
-             A figura 1 mostra que as três aplicações (APP 1, APP 2 e APP 3) executam isoladas em containers no sistema operacional. Este isolamento se dá por conta da funcionalidade
-             namespaces do kernel do Linux. <sup><a href="#references">[7]</a></sup>          
-              Os namespaces funcionam envolvendo as configurações globais do sistema em um ambiente que faz parecer para um processo que ele está sendo executado
-              somente com processos do mesmo ambiente.<sup><a href="#references">[9]</a></sup>
-            </p>
-            <p>
-              Porém somente o uso dos namespaces pode fazer com que um container isolado utilize todos os recursos da máquina, para que isto não ocorra a funcionalidade do cgroups é utlizada.
-              <sup><a href="#references">[7]</a></sup>                        
-              O cgroups é uma funcionalidade do Linux que permite que os processos sejam organizados em grupos hieraquicamente, de acordo com o tipo de recurso da máquina que eles utilizam, assim estes recursos
-              podem ser monitorados e limitados para cada grupo.<sup><a href="#references">[9]</a></sup>
-            </p>
-
             
           </div>
         </div>
       </div>
+    </section>
+
+    <section id="functions" class="content-section ">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2>Como funciona?</h2>
+              <p>
+                  <center><img src="img/containerLXC.png"/><br>
+                  <label>Figura 1: Reproduzida de <a href="#references">[8].</a></label> </center>
+                </p>
+                <p>
+                 A figura 1 mostra que as três aplicações (APP 1, APP 2 e APP 3) executam isoladas em containers no sistema operacional. Este isolamento se dá por conta da funcionalidade
+                 namespaces do kernel do Linux. <sup><a href="#references">[7]</a></sup>          
+                  Os namespaces funcionam envolvendo as configurações globais do sistema em um ambiente que faz parecer para um processo que ele está sendo executado
+                  somente com processos do mesmo ambiente.<sup><a href="#references">[9]</a></sup>
+                </p>
+                <p>
+                  Porém somente o uso dos namespaces pode fazer com que um container isolado utilize todos os recursos da máquina, para que isto não ocorra a funcionalidade do cgroups é utlizada.
+                  <sup><a href="#references">[7]</a></sup>                        
+                  O cgroups é uma funcionalidade do Linux que permite que os processos sejam organizados em grupos hieraquicamente, de acordo com o tipo de recurso da máquina que eles utilizam, assim estes recursos
+                  podem ser monitorados e limitados para cada grupo.<sup><a href="#references">[9]</a></sup>
+                </p>
+                <p>
+                  O linux containers também faz uso do SELinux (Security Enhanced Linux), esta ferramenta verifica em cada chamada do sistema se a aplicação está autorizada a realizar uma determinada operação. Basicamente,
+                  as restrições são aplicadas de acordo com o usuário e o domínio que executou cada aplicação. Juntamente com o apparmor, cuja função é aplicar restrições a uma determinada aplicação independete do usuário que
+                  a executou, o LXC consegue garantir que cada container vai seguir as configurações de uso de recursos aplicadas.
+                </p>
+            </div>
+          </div>
+        </div>
     </section>
 
     <!-- Download Section -->
@@ -155,18 +175,18 @@
                 Computing, 1(3):81–84, 2014.
             </li>
             <li>
-                 <a href="https://linuxcontainers.org/lxc/introduction/">Linux Containers introduction</a>.
+                 <a href="https://linuxcontainers.org/lxc/introduction/" target="_blank">Linux Containers introduction</a>.
                 Acessado em: 24/08/2017 às 23:20. 
             </li>
             <li>
               Gomes, Rafael. Docker para desenvolvedores. Salvador, Bravos, 2017.             
             </li>  
             <li>
-                <a href="https://weloveteach.com/site/artigo/entenda-o-que-e-o-lxc-linux-containers">Entenda o que é o LXC</a>.
+                <a href="https://weloveteach.com/site/artigo/entenda-o-que-e-o-lxc-linux-containers" target="_blank">Entenda o que é o LXC</a>.
                Acessado em: 30/08/2017 às 23:20. 
            </li>
            <li>
-                <a href="http://man7.org/linux/man-pages/index.html">Linux Manual</a>.
+                <a href="http://man7.org/linux/man-pages/index.html" target="_blank">Linux Manual</a>.
                 Acessado em: 30/10/2017 às 19:36.
            </li>           
           </ol>
@@ -186,7 +206,7 @@
               <ul class="list-inline banner-social-buttons">
 
                 <li class="list-inline-item">
-                  <a href="https://github.com/thiagomachado/LXC" class="btn btn-default btn-lg">
+                  <a href="https://github.com/thiagomachado/LXC" target="_blank" class="btn btn-default btn-lg">
                     <i class="fa fa-github fa-fw"></i>
                     <span class="network-name">Github</span>
                   </a>
