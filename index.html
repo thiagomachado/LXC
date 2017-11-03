@@ -40,13 +40,19 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#functions">Como funciona?</a>
-              </li>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#use">Como usar?</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#performance">Desempenho</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#conclusion">Conclusão</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#faq">FAQ</a>
+            </li> 
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#references">Referências</a>
             </li>        
@@ -126,43 +132,71 @@
                 O LXC permite a criação de containers utilizando algumas funcionalidades do kernel do linux como namespaces, cgroups, chroot, SELinux e apparmor.<sup><a href="#references">[6]</a></sup>
               </p>
               <p>
-                  <center><img src="img/containerLXC.png"/><br>
-                  <label>Figura 1: Reproduzida de <a href="#references">[8].</a></label> </center>
-                </p>
-                <p>
-                 A figura 1 mostra que as três aplicações (APP 1, APP 2 e APP 3) executam isoladas em containers no sistema operacional. Este isolamento se dá por conta da funcionalidade
-                 namespaces do kernel do Linux. <sup><a href="#references">[7]</a></sup>          
-                  Os namespaces funcionam envolvendo as configurações globais do sistema em um ambiente que faz parecer para um processo que ele está sendo executado
-                  somente com processos do mesmo ambiente.<sup><a href="#references">[9]</a></sup>
-                </p>
-                <p>
-                  Ainda para garantir o isolamento de cada aplicação, o LXC usa o chroot. Este comando altera o diretório de root de um processo e de seus filhos, garantindo assim que ele não possa acessar arquivos
-                  de fora deste diretório.<sup><a href="#references">[9]</a></sup>
-                </p>
-                <p>
-                  Porém somente o uso dos namespaces pode fazer com que um container isolado utilize todos os recursos da máquina, para que isto não ocorra a funcionalidade do cgroups é utlizada.
-                  <sup><a href="#references">[7]</a></sup>                        
-                  O cgroups é uma funcionalidade do Linux que permite que os processos sejam organizados em grupos hieraquicamente, de acordo com o tipo de recurso da máquina que eles utilizam, assim estes recursos
-                  podem ser monitorados e limitados para cada grupo.<sup><a href="#references">[9]</a></sup>
-                </p>
-                <p>
-                  O linux containers também faz uso do SELinux (Security Enhanced Linux), esta ferramenta verifica em cada chamada do sistema se a aplicação está autorizada a realizar uma determinada operação. Basicamente,
-                  as restrições são aplicadas de acordo com o usuário e o domínio que executou cada aplicação. Juntamente com o apparmor, cuja função é aplicar restrições a uma determinada aplicação independete do usuário que
-                  a executou, o LXC consegue garantir que cada container vai seguir as configurações de uso de recursos aplicadas.<sup><a href="#references">[9]</a></sup>
-                </p>
-                <p></p>
-                <center><a href="#performance" class="btn btn-circle js-scroll-trigger">
-                    <i class="fa fa-angle-double-down animated"></i>
-                  </a></center>
+                  <center><img src="img/containerLXC.png" width="100%"/><br>
+                  <label>Figura I: Estrutura de virtualização com containers. <a href="#images">[I].</a></label> </center>
+              </p>
+              <p>
+                A figura I mostra que as três aplicações (APP 1, APP 2 e APP 3) executam isoladas em containers no sistema operacional. Este isolamento se dá por conta da funcionalidade
+                namespaces do kernel do Linux. <sup><a href="#references">[7]</a></sup>          
+                Os namespaces funcionam envolvendo as configurações globais do sistema em um ambiente que faz parecer para um processo que ele está sendo executado
+                somente com processos do mesmo ambiente.<sup><a href="#references">[8]</a></sup>
+              </p>
+              <p>
+                Ainda para garantir o isolamento de cada aplicação, o LXC usa o chroot. Este comando altera o diretório de root de um processo e de seus filhos, garantindo assim que ele não possa acessar arquivos
+                de fora deste diretório.<sup><a href="#references">[8]</a></sup>
+              </p>
+              <p>
+                Porém somente o uso dos namespaces pode fazer com que um container isolado utilize todos os recursos da máquina, para que isto não ocorra a funcionalidade do cgroups é utlizada.
+                <sup><a href="#references">[7]</a></sup>                        
+                O cgroups é uma funcionalidade do Linux que permite que os processos sejam organizados em grupos hieraquicamente, de acordo com o tipo de recurso da máquina que eles utilizam, assim estes recursos
+                podem ser monitorados e limitados para cada grupo.<sup><a href="#references">[8]</a></sup>
+              </p>
+              <p>
+                O linux containers também faz uso do SELinux (Security Enhanced Linux), esta ferramenta verifica em cada chamada do sistema se a aplicação está autorizada a realizar uma determinada operação. Basicamente,
+                as restrições são aplicadas de acordo com o usuário e o domínio que executou cada aplicação. Juntamente com o apparmor, cuja função é aplicar restrições a uma determinada aplicação independete do usuário que
+                a executou, o LXC consegue garantir que cada container vai seguir as configurações de uso de recursos aplicadas.<sup><a href="#references">[8]</a></sup>
+              </p>
+              <p></p>
+              <center><a href="#performance" class="btn btn-circle js-scroll-trigger">
+                  <i class="fa fa-angle-double-down animated"></i>
+                </a></center>
             </div>
           </div>
         </div>
+    </section>
+
+    <section id="use" class="content-section ">
+        <div class="container">
+            <div class="col-lg-8 mx-auto">
+              <h2>Como usar?</h2>
+              <p>
+                Esta seção tem como objetivo mostar um passo a passo para criar um container utilizando o LXC, indo desde a instalação até alguns comandos básicos.
+              </p>
+            </div>
+          </div>
     </section>
 
     <section id="performance" class="content-section ">
         <div class="container">
             <div class="col-lg-8 mx-auto">
               <h2>Desempenho</h2>
+              <p>
+                Como dito anteriormente, uma das ideias por trás do LXC é montar uma estrutura de virtualização que seja mais eficiente que máquinas virtuais. Essa eficiência se mostra através de uma estrutura que
+                permite uma maior escalabilidade e melhor uso dos recursos da máquina hospedeira.<sup><a href="#references">[1]</a></sup>
+              </p>
+              <p>
+                  <center><img src="img/vm_x_container.png" width="100%"/><br>
+                  <label>Figura II: Comparativo entre máquina virtual e containers. <a href="#images">[I].</a></label> </center>
+              </p>
+              <p>
+                A figura II mostra um comparativo entre as estruturas de virtualização. Do lado esquerdo temos um diagrama de máquinas virtuais sendo gerenciadas por um Hypervisor, nessa estrutura existe uma simulação 
+                do hardware para cada GuestOS (sistema operacional), o Hypervisor fica encarregado de gerenciar cada instância de sistema operacional virtualizado. A principal desvantagem disso é que manter diversos
+                sistemas operacionais em execução é muito custoso para o hospedeiro sendo díficil ter uma grande escalabilidade.
+              </p>
+              <p>
+                Do lado direito temos o mesmo diagrama da Figura I que mostra a estrutura de uma virtualização com containers. Cada aplicação executa em um contexto isolado usando o kernel do sistema operacional do
+                hospedeiro.
+              </p>
             </div>
           </div>
     </section>
@@ -175,15 +209,22 @@
           </div>
     </section>
 
+    <section id="faq" class="content-section ">
+        <div class="container">
+            <div class="col-lg-8 mx-auto">
+              <h2>Perguntas</h2>
+            </div>
+          </div>
+    </section>
+
     <section id="references" class="content-section">
       <div class="container">
         <div class="col-lg-8 mx-auto">
           <h2>Referências Bibliográficas</h2>
           <ol class="listaOl">
             <li>
-                Rajdeep Dua, A Reddy Raja, and Dharmesh Kakadia. Virtualization vs containerization
-                to support paas. In 2014 IEEE International Conference on Cloud Engineering , 14615328,
-                pages 610–614, Boston, MA, USA, 2014. IEEE.
+                Scheepers, Mathijs Jeroen. Virtualization and Containerization of Application
+                Infrastructure: A Comparison. University of Twente P.O. Box 217, 7500AE Enschede. The Netherlands.
             </li>
             <li>
                 Miguel G. Xavier, Marcelo V. Neves, and Fabio D. Rossi. Performance evaluation of
@@ -212,15 +253,22 @@
             <li>
               Gomes, Rafael. Docker para desenvolvedores. Salvador, Bravos, 2017.             
             </li>  
-            <li>
-                <a href="https://weloveteach.com/site/artigo/entenda-o-que-e-o-lxc-linux-containers" target="_blank">Entenda o que é o LXC</a>.
-               Acessado em: 30/08/2017 às 23:20. 
-           </li>
            <li>
                 <a href="http://man7.org/linux/man-pages/index.html" target="_blank">Linux Manual</a>.
                 Acessado em: 30/10/2017 às 19:36.
            </li>           
           </ol>
+
+         
+          <section id="images" class="content-section">
+            <h2>Imagens</h2>
+            <ol type="I">
+                <li>
+                    Reproduzida de <a href="https://weloveteach.com/site/artigo/entenda-o-que-e-o-lxc-linux-containers" target="_blank">Entenda o que é o LXC</a>.
+                  Acessado em: 30/08/2017 às 23:20. 
+               </li>
+            </ol>
+        </section>
         </div>
       </div>
     </section>
