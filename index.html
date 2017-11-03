@@ -102,19 +102,7 @@
             <p>Para um melhor entendimento das funcionalidades do LCX é necessário entender a definição de container. Um container é basicamente uma virtualização
               a nível de sistema operacional, isto significa que o kernel do sistema operacional permite que múltiplos processos executem isoladamente na mesma máquina.
               <sup><a href="#references">[7]</a></sup>
-            </p>
-            <p>
-              O interessante do uso de containers é que eles permitem que o mesmo ambiente usado para desenvolvimento seja usado em produção, ou ainda permitem que uma nova instância de uma aplicação 
-              seja iniciada em outro servidor em instantes. No caso do LXC isso é possível por conta de podermos escrever um arquivo de template para o container. Neste arquivo são listados todos os programas
-              e configurações que o container deve ter, assim basta iniciar um novo conainer a partir do mesmo template e teremos o mesmo ambiente isolado executando da mesma maneira independete da máquina onde
-              esteja hospedado.
-            </p>
-            <p >
-              O exemplo abaixo mostra como seria o comando LXC para criar um container a partir de um template:
-              <label class="codehilite">
-                lxc-create -t template -n meu-container
-              </label>
-            </p>            
+            </p>                        
             <p>
               O principal objetivo do LXC é criar vários ambientes Linux sem precisar utlizar diferentes kernels de modo a ser mais eficiente do que uma máquina virtual.<sup><a href="#references">[6]</a></sup>              
             </p>
@@ -176,6 +164,55 @@
               <p>
                 Esta seção tem como objetivo mostar um passo a passo para criar um container utilizando o LXC, indo desde a instalação até alguns comandos básicos.
               </p>
+              <p>
+                 As principais distribuições de Linux, como Debian, Fedora, Arch e Ubuntu, possuem o LXC em seus repositórios padrões. Assim a Instalação pode ser executada de forma simples pelo terminal, como
+                 por exemplo, usando o seguinte comando no Debian ou Ubuntu:
+                 <label class="codehilite">
+                    sudo apt-get install lxc
+                 </label> 
+                 Ao final da instalação os comandos do LXC e templates estaram disponíveis.
+              </p>
+              <p >
+                  Com o LXC instalado já se pode criar containers, o mais indicado é criar containers sem privilégios como um usuário padrão (não root). Use o seguinte comando para criar um container:
+                  <label class="codehilite">
+                    lxc-create -t download -n meu-container
+                  </label>
+                  Uma lista de templates será exibida e você deve escolher o que mais lhe agradar. Os templates permitem que você crie um container com uma imagem de algum sistema operacional Linux, como Ubuntu
+                  por exemplo. 
+              </p>
+              <p>
+                  Pouco tempo depois seu container será criado e você pode iniciá-lo com:
+                  <label class="codehilite">
+                      lxc-start -n meu-container -d
+                  </label>
+              </p>
+              <p>
+                  Para checar o status use:
+                  <label class="codehilite">
+                      lxc-info -n meu-container<br/>
+                      lxc-ls -f
+                  </label>
+              </p>
+              <p>
+                  Com o seguinte comando é possível abrir uma linha de comando dentro do container:
+                  <label class="codehilite">
+                      lxc-attach -n meu-container
+                  </label>
+              </p>
+              <p>
+                  O container pode ser parado com:
+                  <label class="codehilite">
+                      lxc-stop -n my-container
+                  </label>
+                  Da próxima vez que for iniciado todas as configurações serão mantidas.
+              </p>
+              <p>
+                  E para destruir o container:
+                  <label class="codehilite">
+                      lxc-destroy -n my-container
+                  </label>
+                  Ao ser destruído todos os arquivos e configurações dentro do container são perdidos.
+              </p> 
               <p></p>
               <center><a href="#performance" class="btn btn-circle js-scroll-trigger">
                   <i class="fa fa-angle-double-down animated"></i>
