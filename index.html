@@ -42,13 +42,13 @@
                 <a class="nav-link js-scroll-trigger" href="#functions">Como funciona?</a>
               </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#download">Desempenho</a>
+              <a class="nav-link js-scroll-trigger" href="#performance">Desempenho</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Conclusão</a>
+              <a class="nav-link js-scroll-trigger" href="#conclusion">Conclusão</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#references">Referências Bibliográficas</a>
+              <a class="nav-link js-scroll-trigger" href="#references">Referências</a>
             </li>        
           </ul>
         </div>
@@ -92,11 +92,26 @@
             <p>Para um melhor entendimento das funcionalidades do LCX é necessário entender a definição de container. Um container é basicamente uma virtualização
               a nível de sistema operacional, isto significa que o kernel do sistema operacional permite que múltiplos processos executem isoladamente na mesma máquina.
               <sup><a href="#references">[7]</a></sup>
+            </p>
+            <p>
+              O interessante do uso de containers é que eles permitem que o mesmo ambiente usado para desenvolvimento seja usado em produção, ou ainda permitem que uma nova instância de uma aplicação 
+              seja iniciada em outro servidor em instantes. No caso do LXC isso é possível por conta de podermos escrever um arquivo de template para o container. Neste arquivo são listados todos os programas
+              e configurações que o container deve ter, assim basta iniciar um novo conainer a partir do mesmo template e teremos o mesmo ambiente isolado executando da mesma maneira independete da máquina onde
+              esteja hospedado.
+            </p>
+            <p >
+              O exemplo abaixo mostra como seria o comando LXC para criar um container a partir de um template:
+              <label class="codehilite">
+                lxc-create -t template -n meu-container
+              </label>
             </p>            
             <p>
-              O principal objetivo do LXC é criar vários ambientes Linux sem precisar utlizar diferentes kernels de modo a ser mais eficiente do que uma máquina virtual.<sup><a href="#references">[6]</a></sup>
+              O principal objetivo do LXC é criar vários ambientes Linux sem precisar utlizar diferentes kernels de modo a ser mais eficiente do que uma máquina virtual.<sup><a href="#references">[6]</a></sup>              
             </p>
-            
+            <p></p>
+            <center><a href="#functions" class="btn btn-circle js-scroll-trigger">
+                <i class="fa fa-angle-double-down animated"></i>
+              </a></center>
           </div>
         </div>
       </div>
@@ -108,6 +123,9 @@
             <div class="col-lg-8 mx-auto">
               <h2>Como funciona?</h2>
               <p>
+                O LXC permite a criação de containers utilizando algumas funcionalidades do kernel do linux como namespaces, cgroups, chroot, SELinux e apparmor.<sup><a href="#references">[6]</a></sup>
+              </p>
+              <p>
                   <center><img src="img/containerLXC.png"/><br>
                   <label>Figura 1: Reproduzida de <a href="#references">[8].</a></label> </center>
                 </p>
@@ -118,6 +136,10 @@
                   somente com processos do mesmo ambiente.<sup><a href="#references">[9]</a></sup>
                 </p>
                 <p>
+                  Ainda para garantir o isolamento de cada aplicação, o LXC usa o chroot. Este comando altera o diretório de root de um processo e de seus filhos, garantindo assim que ele não possa acessar arquivos
+                  de fora deste diretório.<sup><a href="#references">[9]</a></sup>
+                </p>
+                <p>
                   Porém somente o uso dos namespaces pode fazer com que um container isolado utilize todos os recursos da máquina, para que isto não ocorra a funcionalidade do cgroups é utlizada.
                   <sup><a href="#references">[7]</a></sup>                        
                   O cgroups é uma funcionalidade do Linux que permite que os processos sejam organizados em grupos hieraquicamente, de acordo com o tipo de recurso da máquina que eles utilizam, assim estes recursos
@@ -126,22 +148,31 @@
                 <p>
                   O linux containers também faz uso do SELinux (Security Enhanced Linux), esta ferramenta verifica em cada chamada do sistema se a aplicação está autorizada a realizar uma determinada operação. Basicamente,
                   as restrições são aplicadas de acordo com o usuário e o domínio que executou cada aplicação. Juntamente com o apparmor, cuja função é aplicar restrições a uma determinada aplicação independete do usuário que
-                  a executou, o LXC consegue garantir que cada container vai seguir as configurações de uso de recursos aplicadas.
+                  a executou, o LXC consegue garantir que cada container vai seguir as configurações de uso de recursos aplicadas.<sup><a href="#references">[9]</a></sup>
                 </p>
+                <p></p>
+                <center><a href="#performance" class="btn btn-circle js-scroll-trigger">
+                    <i class="fa fa-angle-double-down animated"></i>
+                  </a></center>
             </div>
           </div>
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section id="download" class="download-section content-section text-center">
-      <div class="container">
-        <div class="col-lg-8 mx-auto">
-          <h2>Download Grayscale</h2>
-          <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-          <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
-        </div>
-      </div>
+    <section id="performance" class="content-section ">
+        <div class="container">
+            <div class="col-lg-8 mx-auto">
+              <h2>Desempenho</h2>
+            </div>
+          </div>
+    </section>
+
+    <section id="conclusion" class="content-section ">
+        <div class="container">
+            <div class="col-lg-8 mx-auto">
+              <h2>Conclusão</h2>
+            </div>
+          </div>
     </section>
 
     <section id="references" class="content-section">

@@ -233,19 +233,27 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#787778', endColorstr='#000000', GradientType=0 );
 }
 
-.backgroundBlackGrayGradient{
-  
-background: rgba(0,0,0,1);
-background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(59,59,59,1) 76%, rgba(97,97,97,1) 89%, rgba(120,119,120,1) 100%);
-background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(76%, rgba(59,59,59,1)), color-stop(89%, rgba(97,97,97,1)), color-stop(100%, rgba(120,119,120,1)));
-background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(59,59,59,1) 76%, rgba(97,97,97,1) 89%, rgba(120,119,120,1) 100%);
-background: -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(59,59,59,1) 76%, rgba(97,97,97,1) 89%, rgba(120,119,120,1) 100%);
-background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(59,59,59,1) 76%, rgba(97,97,97,1) 89%, rgba(120,119,120,1) 100%);
-background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(59,59,59,1) 76%, rgba(97,97,97,1) 89%, rgba(120,119,120,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#787778', GradientType=0 );
-}
-
 .listaOl li{
   margin-top: 20px;
   text-align: justify;
+}
+
+.separator
+{
+  height: 200px;
+}
+
+.codehilite
+{
+  display: block;
+  padding: 9.5px;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #d5d5d5;
+  border: 1px solid #666;
+  border-radius: 4px;
 }
