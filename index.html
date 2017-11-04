@@ -115,7 +115,7 @@
                 <center><img src="img/canonical-logo1.png" width="100%"/><br>
                 <label>Figura I: Logo da Canonical. <sup><a href="#images">[I].</a></sup></label> </center>
             </p>
-            <p>Para um melhor entendimento das funcionalidades do LCX é necessário entender a definição de container. Um container é basicamente uma virtualização
+            <p>Para um melhor entendimento das funcionalidades do LCX é necessário entender a definição de container. Um container do LXC é basicamente uma virtualização
               a nível de sistema operacional, isto significa que o kernel do sistema operacional permite que múltiplos processos executem isoladamente na mesma máquina.
               <sup><a href="#references">[7]</a></sup>
             </p>                        
@@ -299,6 +299,31 @@
         <div class="container">
             <div class="col-lg-8 mx-auto">
               <h2>Perguntas</h2>
+              <p>
+                <ol>
+                  <li>
+                    O que é um container?<br>
+                    Um container é uma virtualização a nível de sistema operacional, 
+                    isto significa que o kernel do sistema operacional permite que múltiplos processos executem isoladamente na mesma máquina.
+                  </li>
+                  <li>
+                    Qual a função dos namespaces?<br>
+                    Os namespaces são responsáveis por garantir que processos de ambientes diferentes executem de forma isolada.
+                  </li>
+                  <li>
+                    Como o LXC garante que os recursos do hospedeiro não são exauridos por um único namespace? <br/>
+                    Através dos cgroups.
+                  </li>
+                  <li>
+                    Qual a principal vantagem do LXC sobre máquinas virtuais?<br/>
+                    O LXC cria máquinas virtuais que compartilham o mesmo kernel sendo assim mais leves e rápidas que as máquinas virtuais tradicionais.
+                  </li>
+                  <li>
+                    Qual a diferença entre Docker e Linux Container?<br/>
+                    No LXC cada container pode ser uma máquina e no Docker cada container é uma aplicação ou serviço.
+                  </li>
+                </ol>
+              </p>
               <center><a href="#references" class="btn btn-circle js-scroll-trigger">
                   <i class="fa fa-angle-double-down animated"></i>
                 </a></center>
