@@ -113,7 +113,7 @@
             </p>
             <p>
                 <center><img src="img/canonical-logo1.png" width="100%"/><br>
-                <label>Figura I: Logo da Canonical. <a href="#images">[I].</a></label> </center>
+                <label>Figura I: Logo da Canonical. <sup><a href="#images">[I].</a></sup></label> </center>
             </p>
             <p>Para um melhor entendimento das funcionalidades do LCX é necessário entender a definição de container. Um container é basicamente uma virtualização
               a nível de sistema operacional, isto significa que o kernel do sistema operacional permite que múltiplos processos executem isoladamente na mesma máquina.
@@ -141,7 +141,7 @@
               </p>
               <p>
                   <center><img src="img/containerLXC.png" width="100%"/><br>
-                  <label>Figura II: Estrutura de virtualização com containers. <a href="#images">[II].</a></label> </center>
+                  <label>Figura II: Estrutura de virtualização com containers. <sup><a href="#images">[II].</a></sup></label> </center>
               </p>
               <p>
                 A figura II mostra que as três aplicações (APP 1, APP 2 e APP 3) executam isoladas em containers no sistema operacional. Este isolamento se dá por conta da funcionalidade
@@ -247,7 +247,7 @@
               </p>
               <p>
                   <center><img src="img/vm_x_container.png" width="100%"/><br>
-                  <label>Figura III: Comparativo entre máquina virtual e containers. <a href="#images">[II].</a></label> </center>
+                  <label>Figura III: Comparativo entre máquina virtual e containers. <sup><a href="#images">[II].</a></sup></label> </center>
               </p>
               <p>
                 A figura III mostra um comparativo entre as estruturas de virtualização. Do lado esquerdo temos um diagrama de máquinas virtuais sendo gerenciadas por um Hypervisor, nessa estrutura existe uma simulação 
@@ -259,6 +259,16 @@
                 hospedeiro. A pesar de ser uma solução mais leve e que permite uma escalabilidade maior, o LXC posssui a desvantagem de não poder executar, de forma trivial, uma aplicação para um sistema operacional específico que
                 não seja linux, como por exemplo Windows.<sup><a href="#references">[2]</a></sup>
               </p>
+              <p>
+                O LXC deixou de ser a opção mais popular de virtualização de containers com o lançamento do Docker em 2013. O Docker implementa quase algumas funcionalidades do LXC com o adicional de ter uma camada 
+                de abstração que permite o uso de imagens. As imagens são scripts que dizem todas as configurações que um container deve ter, assim é possível utilizar uma arquitetura de microsserviços na qual cada container representa
+                um serviço. Além disso o Docker pode ser usado em várias plataformas (Windows, Mac, Linux) e ao contrário do LXC não é totalmente gratuíto.<sup><a href="#references">[5]</a></sup>
+              </p>
+              <p>
+                  <center><img src="img/docker_x_lxc.jpg" width="100%"/><br>
+                  <label>Figura IV: Comparativo entre Docker e LXC. <sup><a href="#images">[III].</a></sup></label> </center>
+              </p>
+              
               <center><a href="#conclusion" class="btn btn-circle js-scroll-trigger">
                   <i class="fa fa-angle-double-down animated"></i>
                 </a></center>
@@ -270,6 +280,14 @@
         <div class="container">
             <div class="col-lg-8 mx-auto">
               <h2>Conclusão</h2>
+              <p>
+                O LXC permite não apenas que aplicações executem em contexto isolado, mas também que containers sejam criados como máquinas bastante leves (com um boot mais rápido e menor consumo de RAM).
+                No entanto pode não ser o ideal se a finalidade for aplicações que necessitem de um sistema operacional como Windows, nesse caso pode ser mais interessante o uso de uma máquina virtual.
+              </p>
+              <p>
+                No comparativo com o Docker, também fica claro que a pesar das funcionalidades parecidas Docker e LXC possuem propósitos distintos. O LXC oferece uma opção de virtualizção completa do sistema operacional e
+                o Docker oferece uma virtualização de aplicações, no LXC cada container pode ser uma máquina e no Docker cada container é uma aplicação ou serviço.
+              </p>
               <center><a href="#faq" class="btn btn-circle js-scroll-trigger">
                   <i class="fa fa-angle-double-down animated"></i>
                 </a></center>
@@ -341,6 +359,10 @@
                <li>
                   Reproduzido de <a href="https://weloveteach.com/site/artigo/entenda-o-que-e-o-lxc-linux-containers" target="_blank">Entenda o que é o LXC</a>.
                 Acessado em: 30/08/2017 às 23:20. 
+              </li>
+              <li>
+                  Reproduzido de <a href="https://bobcares.com/blog/lxc-vs-docker/" target="_blank">LXC vs Docker</a>.
+                Acessado em: 03/11/2017 às 22:09. 
               </li>
             </ol>
         </section>
